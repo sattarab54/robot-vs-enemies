@@ -243,7 +243,7 @@ for enemy in enemies:
                 enemy_damage = enemy_damage // 2
                 print("Shield reduced damage!")
                 shield_active = False
-                boss_charging = False
+            boss_charging = False
 
             player["health"] = player["health"] - enemy_damage
             if player["health"] < 0:
