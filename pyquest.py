@@ -102,13 +102,23 @@ enemies = [
      "mini_damage": 15,
      "max_damage": 28,
      "mini_coins": 25,
-     "max_coins": 40,},
+     "max_coins": 40},
         
-    {"name": "Boss Bot", "health": 200,
-     "mini_damage": 20,
-     "max_damage": 35,
-     "mini_coins": 40,
-     "max_coins": 60} 
+    {
+        "name": "Boss Bot", "health": 200,
+        "mini_damage": 20,
+        "max_damage": 35,
+        "mini_coins": 40,
+        "max_coins": 60
+    },
+
+    {
+        "name": "Mega Boss", "health": 350,
+        "mini_damage": 30,
+        "max_damage": 50,
+        "mini_coins": 80,
+        "max_coins": 120,
+    }
 ]
 for enemy in enemies:
  
@@ -317,22 +327,24 @@ for enemy in enemies:
 
 else:
     print()
-    print("ALL ENEMIES DESTROYED!")
-    print("MISSION COMPLETE")
-    print("Final XP:", player["xp"])
-    print("Final Level:", player["level"])
-           
     if player["health"] <= 0:
-        print()
         print(robot_name, "WAS DESTROYED")
-    
-    if player["health"] >= 50:
-        print("Rating: Excellent")
-        
-    elif player["health"] >= 20:
-        print("Rating: Good")
+        print("GAME OVER")
+
     else:
-        print("Rating: Barely survived")
+        print()
+        print("ALL ENEMIES DESTROYED!")
+        print("MISSION COMPLETE")
+        print("Final XP:", player["xp"])
+        print("Final Level:", player["level"])
+                           
+        if player["health"] >= 50:
+            print("Rating: Excellent")
+        
+        elif player["health"] >= 20:
+            print("Rating: Good")
+        else:
+            print("Rating: Barely survived")
     
 print()
 play_again = input("Play again? (yes/no): ").strip().lower()
