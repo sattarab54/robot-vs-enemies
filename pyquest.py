@@ -114,8 +114,8 @@ enemies = [
 
     {
         "name": "Mega Boss", "health": 350,
-        "mini_damage": 30,
-        "max_damage": 50,
+        "mini_damage": 10,
+        "max_damage": 20,
         "mini_coins": 80,
         "max_coins": 120,
     }
@@ -226,6 +226,12 @@ for enemy in enemies:
             print("Attack power increased again.")
 
         if enemy["health"] > 0:
+            if enemy["name"] == "Mega Boss" and enemy["health"] <= 150 and "repair_used" not in enemy:
+                enemy["health"] = enemy["health"] + 50
+                enemy["repair_used"] = True
+                print("MEGA BOSS REPAIR MODE ACTIVATED!")
+                print("Mega Boss restored 50 energy")
+
             if enemy["name"] == "Boss Bot" and enemy["health"] <= 100:
 
                 if "rage_used" not in enemy:
