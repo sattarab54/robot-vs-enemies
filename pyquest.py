@@ -368,7 +368,8 @@ print()
 play_again = input("Play again? (yes/no): ").strip().lower()
 
 if play_again == "yes":
-    print("Restart the program to play again.")
+    print("Close this run and start again with:")
+    print("python pyquest.py")    
 else:
     print("Thanks for playing PyQuest!")
 
