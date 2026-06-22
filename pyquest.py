@@ -226,6 +226,11 @@ for enemy in enemies:
             print("Attack power increased again.")
 
         if enemy["health"] > 0:
+            if enemy["name"] == "Mega Boss" and enemy["health"] <= 200 and "rsge_used" not in enemy:
+                print("MEGA BOSS RAGE MODE ACTIVATED")
+                enemy["max_damage"] = enemy["max_damage"] + 15
+                enemy["rage_used"] = True
+
             if enemy["name"] == "Mega Boss" and enemy["health"] <= 150 and "repair_used" not in enemy:
                 enemy["health"] = enemy["health"] + 50
                 enemy["repair_used"] = True
@@ -240,6 +245,13 @@ for enemy in enemies:
                     enemy["rage_mode"] = True
                                                             
             enemy_damage = random.randint(enemy["mini_damage"], enemy["max_damage"])
+
+            if enemy["name"] == "Mega Boss":
+                critical_chance = random.randint(1, 5)
+
+                if critical_chance == 1:
+                    enemy_damage = enemy_damage + 20
+                    print("MEGA BOSS CRITICAL STRIKE!")
 
             if enemy["name"] == "Boss Bot" and enemy["health"] <= 100 and not boss_charging:
                 print("WARNING: Boss is charging a Mega Attack!")
