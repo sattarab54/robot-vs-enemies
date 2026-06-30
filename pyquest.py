@@ -73,7 +73,7 @@ elif robot_class == "3":
         "xp": 0,
         "level": 1,
         "coins": 0,
-        "special_used": False,
+        "special_used": 0,
         "attack_bonus": 10,
         "shield_uses": 2
     }
@@ -166,21 +166,33 @@ for enemy in enemies:
             player["xp"] = player["xp"] + 10
 
         elif action == "special":
-            if player["special_used"] == False:
 
-                damage = random.randint(30, 50)
+            can_use_special = False
+            
+            if class_name == "Speed Bot":
+                if player["special_used"] < 2:
+                    can_use_special = True
+                    player["special_used"] = player["special_used"] + 1                                    
+            else:
+                if player["special_used"] == False:
+                    can_use_special = True
+                    player["special_used"] = True
+
+            if can_use_special:
+                if class_name == "Tank Bot":
+                    damage = random.randint(45, 65)
+                else:
+                    damage = random.randint(30, 50)
+
                 enemy["health"] = enemy["health"] - damage
-
+                                                                                                                                                    
                 if enemy["health"] <= 0:
                     enemy["health"] = 0
 
                 print("SPECIAL ROBOT BLAST did", damage, "damage")
-                
-                player["special_used"] =True
-                
             else:
-                print("Special power already used!")
-
+                print("Special power already used!")                
+                                                                                       
         elif action == "heal":
             if player["repair_kits"] > 0:
 
