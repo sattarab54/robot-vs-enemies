@@ -59,7 +59,7 @@ elif robot_class == "2":
         "level": 1,
         "coins": 0,
         "special_used": False,
-        "attack_bonus": 0,
+        "attack_bonus": 5,
         "shield_uses": 2
     }
 
@@ -74,7 +74,7 @@ elif robot_class == "3":
         "level": 1,
         "coins": 0,
         "special_used": False,
-        "attack_bonus": 0,
+        "attack_bonus": 10,
         "shield_uses": 2
     }
 
