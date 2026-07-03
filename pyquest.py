@@ -20,16 +20,17 @@ print("Defeat all enemy robots to win.")
 print("Commands:")
 print("- attack  = normal laser attack")
 print("- heal    = use a repair kit")
-print("- special = powerful blast, only once")
+print("- special = special attack (Speed Bot can use it twice)")
+print("- shield  = block the next enemy attack")
 print()
 
 input("Press Enter to start the mission...")
 print()
 
 print("Choose Your Robot Class")
-print("1. Tank Bot")
-print("2. Speed Bot")
-print("3. Power Bot")
+print("1. Tank Bot  - High health, stronger special attack")
+print("2. Speed Bot - Balanced health, two special attacks")
+print("3. Power Bot - Lower health, highest attack bonus")
 
 robot_class = input("Select robot: ").strip()
 
