@@ -90,6 +90,7 @@ print("Robot Class:", class_name)
 print()
 
 shield_active = False
+shield_turns = 0
 boss_charging = False
 
 enemies = [
@@ -215,8 +216,12 @@ for enemy in enemies:
                 continue
 
             shield_active = True
-            player["shield_uses"] = player["shield_uses"] - 1
+            if class_name == "Tank Bot":
+                shield_turns = 2
+            else:
+                shield_turns = 1
 
+            player["shield_uses"] = player["shield_uses"] - 1
             print("Shield activated!")
             print("Shields left:", player["shield_uses"])
 
@@ -282,8 +287,13 @@ for enemy in enemies:
 
             if shield_active:
                 enemy_damage = enemy_damage // 2
+                shield_turns = shield_turns - 1
+
                 print("Shield reduced damage!")
-                shield_active = False
+                print("Shield blocks left:", shield_turns)
+
+                if shield_turns <= 0:                    
+                    shield_active = False
             boss_charging = False
 
             player["health"] = player["health"] - enemy_damage
