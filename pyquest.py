@@ -146,8 +146,11 @@ for enemy in enemies:
             if player["level"] == 2:
                 damage = damage + 15
 
-            critical = random.randint(1, 5)
-
+            if class_name == "Power Bot":
+                critical = random.randint(1, 3)
+            else:
+                critical = random.randint(1, 5)
+                        
             if critical == 1:
                 damage = damage * 2
                 print("CRITICAL HIT!")
