@@ -162,7 +162,15 @@ for enemy in enemies:
                     damage = damage + 20
                     print("LEVEL 3 POWER STRIKE!")
 
+            if enemy["name"] == "Guard Bot":
+                armor = random.randint(1, 4)
+
+                if armor == 1:
+                    print("GUARD BOT ARMOR ABSORBED DAMAGE!")
+                    damage = damage // 2
+
             enemy["health"] = enemy["health"] - damage
+
             if enemy["health"] <= 0:
                     enemy["health"] = 0
 
@@ -298,6 +306,13 @@ for enemy in enemies:
                 if shield_turns <= 0:                    
                     shield_active = False
             boss_charging = False
+
+            if class_name =="Speed Bot":
+                dodge = random.randint(1, 5)
+
+                if dodge ==1:
+                    print("SPEED BOT DODGED THE ATTACK")
+                    enemy_damage = 0
 
             player["health"] = player["health"] - enemy_damage
             if player["health"] < 0:
