@@ -275,6 +275,17 @@ for enemy in enemies:
                                                             
             enemy_damage = random.randint(enemy["mini_damage"], enemy["max_damage"])
 
+            if enemy["name"] == "Scout Bot":
+                quick_shot = random.randint(1, 4)
+
+                if quick_shot == 1:
+                    extra_damage = random.randint(
+                        enemy["mini_damage"],
+                        enemy["max_damage"]
+                    )
+                    enemy_damage = enemy_damage + extra_damage
+                    print("SCOUT BOT QUICK SHOT!")
+
             if enemy["name"] == "Mega Boss":
                 critical_chance = random.randint(1, 5)
 
