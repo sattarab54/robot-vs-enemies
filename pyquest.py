@@ -127,6 +127,18 @@ for enemy in enemies:
     print()
     print("New Enemy:", enemy["name"])
 
+    if enemy["name"] == "Scout Bot":
+        print("Ability: May attck twice with Quick Shot.")
+
+    elif enemy["name"] == "Guard Bot":
+        print("Ability: May absorb half of your attack damage.")
+
+    elif enemy["name"] == "Boss Bot":
+        print("Ability; Uses Rage Mode and Mega Attacks.")
+
+    elif enemy["name"] == "Mega Boss":
+        print("Ability: Can repair itself and use critical strikes.")
+
     while enemy["health"] > 0 and player["health"] > 0:
 
         print()        
@@ -161,6 +173,13 @@ for enemy in enemies:
                 if power_chance == 1:
                     damage = damage + 20
                     print("LEVEL 3 POWER STRIKE!")
+
+            if class_name == "Power Bot":
+                overload = random.randint(1, 4)
+
+                if overload == 1:
+                    damage = damage + 15
+                    print("POWER BOT OVERLOAD")
 
             if enemy["name"] == "Guard Bot":
                 armor = random.randint(1, 4)
