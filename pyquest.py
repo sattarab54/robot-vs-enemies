@@ -353,6 +353,21 @@ for enemy in enemies:
         if enemy["health"] <=0:
             print()
             print(enemy["name"], "destroyed")
+            
+            victory_xp = 10
+
+            if enemy["name"] == "Guard Bot":
+                victory_xp = 20
+
+            elif enemy["name"] == "Boss Bot":
+                victory_xp = 30
+
+            elif enemy["name"] == "Mega Boss":
+                victory_xp = 50
+
+            player["xp"] = player["xp"] + victory_xp
+            print("Victory XP earned:", victory_xp)
+            
             coins_earned = random.randint(
                 enemy["mini_coins"],
                 enemy["max_coins"]
@@ -436,7 +451,13 @@ else:
             print("Rating: Barely survived")
     
 print()
-play_again = input("Play again? (yes/no): ").strip().lower()
+
+try:
+    play_again = input("Play again? (yes/no): ").strip().lower()
+except KeyboardInterrupt:
+    print()
+    print("Game closed.")
+    quit()
 
 if play_again == "yes":
     print("Close this run and start again with:")
